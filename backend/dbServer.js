@@ -10,7 +10,8 @@ const PORT = process.env.PORT
 const express = require("express")
 const app = express()
 const mysql = require("mysql2")
-
+const bcrypt = require("bcrypt")
+app.use(express.json())
 
 const db = mysql.createPool({
    connectionLimit: 100,
@@ -22,13 +23,99 @@ const db = mysql.createPool({
 })
 db.getConnection((err, connection) => {
     if (err) {
-        console.error("Error connecting to the database:", err);
+        console.error("Error connecting to the DB:", err);
         process.exit(1);
     } else {
-        console.log("DB connected successfully: " + connection.threadId);
+        console.log("Connected to DB: " + connection.threadId);
 
         app.listen(PORT, () => {
             console.log(`Server started on port ${DB_PORT}...`);
         });
     }
 });
+
+//Create a new user
+app.post ("/createUser", async (req, res) => {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).json({ error: "Invalid Username or Password" });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    db.getConnection((err, connection) => {
+        if (err) {
+            return res.status(500).json({ error: "Failed to connect to the database" });
+        }
+
+        const searchQuery = "SELECT * FROM users WHERE username = ?";
+
+        connection.query(searchQuery, [username], (err, result) => {
+            if (err) {
+                connection.release();
+                return res.status(500).json({ error: "Error checking if user exists" });
+            }
+
+            if (result.length > 0) {
+                connection.release();
+                return res.status(409).json({ error: "User already exists" });
+            }
+
+            const insertQuery = "INSERT INTO users (username, password_hash) VALUES (?, ?)";
+            connection.query(insertQuery, [username, hashedPassword], (err, result) => {
+                connection.release();
+                if (err) {
+                    return res.status(500).json({ error: "Error creating user" });
+                }
+
+                res.status(201).json({
+                    message: "User created successfully",
+                    userId: result.insertId,
+                });
+            });
+        });
+    });
+})
+
+//Login
+app.post("/login", async (req, res) => {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).json({ error: "Invalid Username or Password" });
+    }
+    //Connect to the database
+    db.getConnection((err, connection) => {
+        if (err) {
+            return res.status(500).json({ error: "Failed to connect to the database" });
+        }
+
+        const searchQuery = "SELECT * FROM users WHERE username = ?";
+        //Check to see if the user exists
+        connection.query(searchQuery, [username], async (err, result) => {
+            if (err) {
+                connection.release();
+                return res.status(500).json({ error: "Error checking if user exists" });
+            }
+
+            if (result.length === 0) {
+                connection.release();
+                return res.status(401).json({ error: "Invalid Username or Password" });
+            }
+
+            const user = result[0];
+            const passwordMatch = await bcrypt.compare(password, user.password_hash);
+
+            if (!passwordMatch) {
+                connection.release();
+                return res.status(401).json({ error: "Invalid Username or Password" });
+            }
+
+            res.status(200).json({
+                message: "Login successful",
+                userId: user.id,
+            });
+        });
+    });
+})
