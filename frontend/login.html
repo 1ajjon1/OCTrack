@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="author" content="Taleiven, Saravanan, DJ, Justin" />
+        <title>Login page</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header id="header">
+        </header>
+        <main>
+            <p>Please login 
+            </p>
+            <form onsubmit="event.preventDefault(); handleLogin();">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                
+                <button type="submit">Login</button>
+            </form>
+            
+        </main>
+        <footer>
+            <p>Don't have an account? womp womp</p>
+        </footer>
+    </body>
+</html>

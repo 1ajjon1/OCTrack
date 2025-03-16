@@ -1,0 +1,87 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: black;
+    color:white;
+    padding: 15 px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+
+}
+
+.Logo-and-Title{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu ul{
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+}
+.menu a:hover {
+    color: yellow;
+}
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    display: flex;
+    gap: 10px;
+}
+header a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+main{
+    background-color: #3D52A0;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    overflow: auto;
+}
+
+footer{
+    background-color: black;
+    color:white;
+    padding: 15 px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.button {
+    display: block;
+    padding: 10px 20px;
+    background-color: yellow;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
