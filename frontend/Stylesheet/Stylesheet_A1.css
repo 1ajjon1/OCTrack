@@ -1,0 +1,93 @@
+body        {background-color: white; margin: 0; padding:0; z-index: 20;}
+h2          {margin-left: 24px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';}
+button      {margin: 20px; font-family: Inter; font-size: 14pt; background-color: rgb(139, 0, 0);}
+
+img         {position: absolute; top: 0px; left: 0px;}
+p           { font-family: Inter; color: black; margin-left: 24px;}
+
+/* Standardized Textboxes */
+input [type=text] { height: 30px; padding: 5pt; border: 2px rgba(91, 145, 229, 1); font-size: 18pt; background-color: white; width: 250px; }
+
+
+
+
+
+
+.header {width:100%; height:10%; }
+.container {position: relative; text-align: center; color: white; }
+
+
+
+
+section{
+    height: 750px; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+section img {
+    width: 100%; 
+    height: auto; 
+}
+
+
+section .physical-container {
+    width: 350px; height: auto;
+
+    margin: auto; border: 2px solid black; border-radius: 4% 4% 4% 4%; padding: 25px; 
+    justify-self: center;
+    background-color:rgba(0, 0, 0, 0.8);
+    position:absolute;
+    z-index: 20;
+}
+.physical-container h2 {
+    font-family: Inter;
+    color: white;
+}
+.physical-container p {
+    font-family: Inter;
+    color: white;
+}
+.physical-container input{
+    float: right;
+}
+
+
+.travel-planner { margin-left: 100px; font-family: Inter; }
+.travel-planner p {font-family: Inter; font: 24pt;}
+.travel-planner h2 {font-family: Inter; font: 28pt;}
+
+
+
+.layer-1 { z-index: 10; width: 100%; height: auto;}
+
+
+
+
+
+
+
+.googleAPI { max-width: 100%; height: auto;}
+
+.routes-container { 
+    display: flex; 
+    flex-direction: column;
+    margin-left: 100px; 
+    gap: 100px; 
+    padding-left: 15px;
+}
+
+
+.Login-container {
+    width: 20%; 
+    height: auto; 
+    text-align: center;
+    color: white;
+    margin-left:125px;
+    padding-top: 3px;
+    padding-bottom:5px;
+    border-radius: 5%;
+    
+}
+
