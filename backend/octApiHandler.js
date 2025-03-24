@@ -1,5 +1,6 @@
 require("dotenv").config();
 import GtfsRealtimeBindings from "gtfs-realtime-bindings";
+import { load, Message } from "protobufjs";
 
 // endpoint + key
 const url = "https://nextrip-public-api.azure-api.net/octranspo/gtfs-rt-vp/beta/v1/VehiclePositions";
@@ -16,9 +17,26 @@ function httpRequest() {
     } else {
         console.error(reqObj.statusText);
     }
-    // reqObj.send();
+    const buffer = reqObj.response;
+    parseData(buffer);
 }
 
-// function for data parsing here
+function parseData(buffer) {
+    
+    var feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(
+        new Uint8Array(buffer)
+    );
+    feed.entity.forEach((entity) => {
+        if (entity.tripUpdate) {
+            console.log(entity.tripUpdate);
+        }
+    });
+    messagetoObj(feed);
+}
+// reqObj.send();
 
-// function for json conversion here
+function messagetoObj(feed) {
+    var feed_json = Message.toObject(feed);
+    console.log(feed_json);
+    f = new File(feed_json, 'results.json');
+}

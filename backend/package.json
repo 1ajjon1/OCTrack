@@ -5,7 +5,8 @@
     "express": "^4.21.2",
     "gtfs-realtime-bindings": "^1.1.1",
     "mysql": "^2.18.1",
-    "mysql2": "^3.13.0"
+    "mysql2": "^3.13.0",
+    "protobufjs": "^7.4.0"
   },
   "devDependencies": {
     "dotenv": "^16.4.7",
