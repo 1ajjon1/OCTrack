@@ -12,11 +12,14 @@ function httpRequest() {
     reqObj.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
     reqObj.open("GET", url, true);
     reqObj.responseType = "arraybuffer";
-    if (reqObj.readyState == 4 && reqObj.status == 200) {
+    reqObj.onload = (e) => {
+        if (reqObj.readyState == 4 && reqObj.status == 200) {
         console.log(reqObj.responseText);
-    } else {
+        } else {
         console.error(reqObj.statusText);
+        }
     }
+    reqObj.send();
     const buffer = reqObj.response;
     parseData(buffer);
 }
@@ -33,7 +36,6 @@ function parseData(buffer) {
     });
     messagetoObj(feed);
 }
-// reqObj.send();
 
 function messagetoObj(feed) {
     var feed_json = Message.toObject(feed);
