@@ -21,7 +21,7 @@ function httpRequest() {
     }
     reqObj.send();
     const buffer = reqObj.response;
-    parseData(buffer);
+    return buffer;
 }
 
 function parseData(buffer) {
@@ -34,11 +34,17 @@ function parseData(buffer) {
             console.log(entity.tripUpdate);
         }
     });
-    messagetoObj(feed);
+    return feed
 }
 
-function messagetoObj(feed) {
-    var feed_json = Message.toObject(feed);
+function getLocation() {
+    var originQuery = document.getElementById("locOrigin").value;
+    var destQuery = document.getElementById("locDest").value;
+    
+    var buffer = httpRequest();
+    var locData = parseData(buffer);
+    var feed_json = Message.toObject(locData);
     console.log(feed_json);
     f = new File(feed_json, 'results.json');
+    return f;
 }
