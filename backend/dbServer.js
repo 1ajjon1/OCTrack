@@ -12,6 +12,17 @@ const app = express()
 const mysql = require("mysql2")
 const bcrypt = require("bcrypt")
 app.use(express.json())
+const cors = require("cors");
+
+const corsOptions = {
+  origin: ["http://localhost:5500", "http://127.0.0.1:5500"], // Allow only your frontend
+  methods: "GET,POST,PUT,DELETE,OPTIONS", // Allow necessary methods
+  allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept",
+  credentials: true // Allow cookies & authentication headers
+};
+
+// Use CORS Middleware
+app.use(cors());
 
 const db = mysql.createPool({
    connectionLimit: 100,
@@ -36,10 +47,10 @@ db.getConnection((err, connection) => {
 
 //Create a new user
 app.post ("/createUser", async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, email, name } = req.body;
 
     if (!username || !password) {
-        return res.status(400).json({ error: "Invalid Username or Password" });
+        return res.status(400).json({ error: "Invalid Registration" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -62,8 +73,8 @@ app.post ("/createUser", async (req, res) => {
                 return res.status(409).json({ error: "User already exists" });
             }
 
-            const insertQuery = "INSERT INTO users (username, password_hash) VALUES (?, ?)";
-            connection.query(insertQuery, [username, hashedPassword], (err, result) => {
+            const insertQuery = "INSERT INTO users (username, password_hash, email, name) VALUES (?, ?, ?, ?)";
+            connection.query(insertQuery, [username, hashedPassword, email, name], (err, result) => {
                 connection.release();
                 if (err) {
                     return res.status(500).json({ error: "Error creating user" });
@@ -91,9 +102,9 @@ app.post("/login", async (req, res) => {
             return res.status(500).json({ error: "Failed to connect to the database" });
         }
 
-        const searchQuery = "SELECT * FROM users WHERE username = ?";
+        const searchQuery = "SELECT * FROM users WHERE username = ? OR email = ?";
         //Check to see if the user exists
-        connection.query(searchQuery, [username], async (err, result) => {
+        connection.query(searchQuery, [username, username], async (err, result) => {
             if (err) {
                 connection.release();
                 return res.status(500).json({ error: "Error checking if user exists" });
