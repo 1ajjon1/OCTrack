@@ -41,8 +41,13 @@ function parseData(buffer) {
 
 function getBus() {
     var stopQuery = document.getElementById("stopIn").value;
-    var routeQuery = document.getElementById("routeIn").value;
+    var startQuery = document.getElementById("routeIn").value;
     
+    var buffer = httpRequest();
+    var locData = parseData(buffer);
+    var feed_json = Message.toObject(locData);
+    console.log(feed_json);
+    f = new File(feed_json, 'results.json');
 }
 
 document.getElementById("searchBtn").addEventListener("click", getBus());
