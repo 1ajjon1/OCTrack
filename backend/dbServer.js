@@ -53,6 +53,7 @@ app.post ("/createUser", async (req, res) => {
         return res.status(400).json({ error: "Invalid Registration" });
     }
 
+    //This encrypts the password the user inputs
     const hashedPassword = await bcrypt.hash(password, 10);
 
     db.getConnection((err, connection) => {
@@ -73,6 +74,7 @@ app.post ("/createUser", async (req, res) => {
                 return res.status(409).json({ error: "User already exists" });
             }
 
+            //This should help prevent SQL injections as it is seperating SQL commands from the user's input, using "?" will store the user's inputs as strings and will not be apart of the sql query command
             const insertQuery = "INSERT INTO users (username, password_hash, email, name) VALUES (?, ?, ?, ?)";
             connection.query(insertQuery, [username, hashedPassword, email, name], (err, result) => {
                 connection.release();

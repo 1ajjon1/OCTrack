@@ -42,14 +42,14 @@
                 <p>Confirm password: <input id="passwordConfirmation"></p>
                 
                 <p id="regMsg"><br></p>
-                <button id="registrationButton">Register</button>
+                <button id="registrationButton" onclick=registration()>Register</button>
             </div>
 
             <div class="physical-container" style="margin-left: 42%;">
                 <h2>Login</h2>
                 <p>Email: <input id="loginEmail"></p>
                 <p>Password: <input id="loginPassword" type="password"></p>
-                <button id="loginButton">Login</button>
+                <button id="loginButton" onclick=login()>Login</button>
                 <p id="loginMessage"></p>
             </div>
         </section>
@@ -63,107 +63,6 @@
             </div>
             
         </div>
-       
-        
-      
-
-
-
-
     </body>
-    <script>
-        document.getElementById("loginButton").addEventListener("click", async () =>{
-            const username = document.getElementById("loginEmail").value;
-            const password = document.getElementById("loginPassword").value;
-
-            if (!username){
-                document.getElementById("loginMessage").innerHTML = "Please enter an email address"
-                return;
-            }
-            else if(!password){
-                document.getElementById("loginMessage").innerHTML = "Please enter a password"
-                return;
-            }
-            try {
-                console.log(username)
-                console.log(password)
-                const response = await fetch("http://localhost:3000/login", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json"},
-                    body: JSON.stringify({username,password})
-                });
-
-                const result = await response.json();
-                if(response.ok){
-                    document.getElementById("loginMessage").innerHTML = "Login successfull!";
-                }
-                else{
-                    document.getElementById("loginMessage").innerHTML = result.error || "Login Failed";
-                }
-            }
-            catch{
-                document.getElementById("loginMessage").innerHTML = "Login error";
-            }
-            document.getElementById("loginEmail").value = "";
-            document.getElementById("loginPassword").value = "";
-            console.log("hi");
-        });
-
-        document.getElementById("registrationButton").addEventListener("click", async () =>{
-            const username = document.getElementById("userRegistration").value;
-            const name = document.getElementById("nameRegistration").value;
-            const email = document.getElementById("emailRegistration").value;
-            const password = document.getElementById("passwordRegistration").value;
-            const passConfirmation = document.getElementById("passwordConfirmation").value;
-
-            if (!email){
-                document.getElementById("regMsg").innerHTML = "Please enter an email address"
-                return;
-            }
-            if(!password){
-                document.getElementById("regMsg").innerHTML = "Please enter a password"
-                return;
-            }
-            if(!name){
-                document.getElementById("regMsg").innerHTML = "Please enter a Name"
-                return;
-            }
-            if(!passConfirmation){
-                document.getElementById("regMsg").innerHTML = "Please re-enter a password"
-                return;
-            }
-            if(!username){
-                document.getElementById("regMsg").innerHTML = "Please enter a username"
-                return;
-            }
-
-            if(password != passConfirmation){
-                document.getElementById("regMsg").innerHTML = "Passwords Do not Match"
-                return;
-            }
-            try {
-                const response = await fetch("http://localhost:3000/createUser", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json"},
-                    body: JSON.stringify({username,password,email,name})
-                });
-                let result;
-                try{
-                    result = await response.json();
-                }
-                catch{
-                    document.getElementById("regMsg").innerHTML = "Server Issue please again letter";
-                }
-                if(response.ok){
-                    document.getElementById("regMsg").innerHTML = "Registration Successful!";
-                }
-                else{
-                    document.getElementById("regMsg").innerHTML = result.error || "Registration Failed";
-                }
-            }
-            catch{
-                document.getElementById("regMsg").innerHTML = result.error || "Registration Failed";
-            }
-        });
-    </script>
+    <script src="loginReg.js"></script>
 </html>
