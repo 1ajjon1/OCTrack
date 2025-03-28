@@ -29,7 +29,7 @@
     <title>OCTrack - Home</title>
     <body>
         
-
+        <img src = "images/IMG_4782.jpeg" class = ".transparent-gradient">
         <section>
             <img src="images/OC_Transpo_A1.jpg" class="layer-1">
             <div class="Rectangle"></div>
@@ -68,7 +68,55 @@
       
 
 
+        <script>
+                const onlybutton = document.querySelector("button"); 
+                const msg_line = document.getElementById("msg"); 
 
+                let parameter1 = false; 
+                let parameter2 = false; 
+                let parameter3 = false; 
+                
+                onlybutton.addEventListener("click", function(){
+                    
+                    // Checks if email has an at (@) and period (.)
+                    var userEmail = document.getElementById("i1").value;            // Obtain value of i1  
+
+                    if ((userEmail.indexOf('@') > 0) && (userEmail.indexOf('.') > 2)){   // IF valid user input
+                        msg_line.innerText = "\n"; 
+                        parameter1=true;
+                    }
+                    else { msg_line.innerText="Invalid email"; parameter1=false;}   // IF invalid user input
+
+
+
+                    // Checks if username and name has a length of two or more characters. 
+                    var name = document.getElementById("i2").value;                 // Obtain value of i2
+                    var username = document.getElementById("i3").value;             // Obtain value of i3
+
+                    if (name.length >= 2 && username.length >= 2){                  // IF valid user input
+                        msg_line.innerText = "\n";
+                        parameter2 = true; 
+                    }    
+                    else {msg_line.innerText="Name or username required"; parameter2=false; }  // IF invalid user input
+
+
+
+                    // Confirms passwords and checks if length is 7 or more. 
+                    var password = document.getElementById("i4").value; 
+                    var confirmPassword = document.getElementById("i5").value; 
+                    
+                    if ((password == confirmPassword) && (password.length >= 7)) {msg_line.innerText = "\n"; parameter3=true;}
+                    else {msg_line.innerText = "Password must be the same and have a length of 7 or more characters."; parameter3=false; } 
+
+                    // Redirection to customer page.
+                    if (parameter1==true && parameter2==true && parameter3==true)       { window.location.href="CustomerPage.php";}
+                    else if (parameter1==true && parameter2==true && parameter3==true)  { msg_line.innerText="Enter information in the appropriate fields.";}
+                    console.log(parameter1); 
+                    console.log(parameter2); 
+                    console.log(parameter3);
+
+                }); 
+        </script>
 
     </body>
 </html>

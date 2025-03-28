@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="Stylesheet/Stylesheet_A1.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <title>OC Bus Tracker</title>
+    <title>Favourites</title>
 
     <style>
         @font-face {
@@ -29,9 +29,16 @@
         }
     </style>
 </head>
-<body class="body">
+<body>
+    <picture>
+        <source srcset="images/OC_Transpo_O_Train_LRV_1107_YOUNGJIN_KO.jpg" class="picture-bottom" media="(max-width: 720px)">
+        <source srcset="images/IMG_4782.jpeg">
+        <img src="images/IMG_4782.jpeg" class="picture">
+    </picture>
+    
+    <img src="images/IMG_4782.jpeg" class="picture">
     <div class="header-rectangle"></div>
-    <div class="header-main-page"><h1><img src="images/O-Train_icon.png" class="OC-Transpo-Logo">OC Bus Tracker <img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"></h1></div>
+    <div class="header-main-page"><h1><img src="images/O-Train_icon.png" class="OC-Transpo-Logo">OC Transpo Tracker<img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"></h1></div>
     <!-- https://commons.wikimedia.org/wiki/File:O-Train_icon.png -->
     <!-- By <a href="https://en.wikipedia.org/wiki/OC_Transpo" class="extiw" title="w:OC Transpo">OC Transpo</a> - <a rel="nofollow" class="external text" href="http://www.ligneconfederationline.ca/wp-content/uploads/2015/10/Confederation_Line_Newsletter_Fall_2015_EN.pdf">Confederation Line Newsletter, Fall 2015</a>, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=76822496">Link</a> -->        
     
@@ -46,12 +53,13 @@
             <p class="shiftright"><button>Login</button></p>
         </div>
     </div>
-    
+
+
     <div class="flex-table">
-        <div><img src="Images/Google-Map-API-picture-A1.png" class="googleAPI"></div>
         <div class="routes-container">
-            <h2>Travel Options</h2>
+            <h2>Favourite Routes</h2>
             <div>
+                <h3>Example 1</h3>
                 <h3>Fallowfield Station</h3>
                 <p>8:15 - 271 Tunney's Pasture &lpar;9 min&rpar;</p>
                 <h3>Baseline Station</h3>
@@ -63,6 +71,7 @@
                 <b>TOTAL: 52 min &lpar;8:26-9:18&rpar;</b>
             </div>
             <div>
+                <h3>Example 2</h3>
                 <h3>Fallowfield Station</h3>
                 <p>8:30 - 278 Tunney's Pasture &lpar;27 min&rpar;</p>
                 <h3>Tunney's Pasture</h3>
@@ -73,56 +82,15 @@
                 <b>TOTAL: 1h 5min &lpar;8:29-9:34&rpar;</b>
             </div>
         </div>  
+        <!-- <div>
+            <img src="images/IMG_4782.jpeg" class="picture">
+        </div> -->
     </div>
-    <div clas="flex-table">
-        <div class="physical-container">
-            <div class="travel-planner">
-                <h2>Travel Planner</h2>
-                <p>Origin: <input></p>
-                <p>Destination: <input></p>
-                <button>Change routes</button>
-            </div>
-        </div>     
-    </div>
-   
-
-
-
-
-
-
-    <footer>
-        <p>Something</p>
-        <img src="images/instagram-icon.png" class="instagram-icon"> 
-        <!-- https://www.flaticon.com/free-icon/instagram_1384063 -->
-        <img src="images/X_icon.svg.png" class="x-icon"> 
-        <!-- https://commons.wikimedia.org/wiki/File:X_icon.svg -->
-        <img src="images/2023_Facebook_icon.svg.png" class="facebook">
-        <!-- https://commons.wikimedia.org/wiki/File:2023_Facebook_icon.svg -->
-        <img src="images/Logo_of_YouTube_(2015-2017).svg.png" class="youtube">
-        <!-- https://commons.wikimedia.org/wiki/File:Logo_of_YouTube_%282015-2017%29.svg -->
-    </footer>
-
     <script>
-        const route = document.querySelectorAll(".routes-container div");
-    
-        route.forEach((cell) => {
-            cell.addEventListener("mouseover", function (){
-                cell.style.backgroundColor = "rgba(0,150,0,0.15)"; 
-            
-            }); 
-    
-            cell.addEventListener("mouseout", function (){
-                cell.style.transform = "scale(1)"; 
-                cell.style.backgroundColor = "hsl(0,0%,0%,0)"; 
-            }); 
-
-        }); 
         
-    
-    
+        const Arrows = document.getElementsByClassName("Arrow"); 
+        
     </script>
-
-    
 </body>
+
 </html>

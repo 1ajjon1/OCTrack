@@ -15,9 +15,9 @@ footer p            {font-family: Inter; color: white; font-size: 16pt; }
 
 
 
-.header-rectangle {background-color: black; height: 35px; width: 100%; }
-.header {width:100%; height:10%; font-size: 48pt; }
-.header-main-page {font-family: Inconsolata; font-size: 48pt; height: 15%;}
+.header-rectangle {background-color: black; height: 35px; width: 100%; z-index: 10;}
+.header {width:100%; height:10%; font-size: 48pt; z-index: 10;}
+.header-main-page {font-family: Inconsolata; font-size: 48pt; height: 15%; z-index: 10}
 /* .container {position: relative; text-align: center; color: white; } */
 .layer-1 { z-index: 10; width: 100%; height: auto; }
 
@@ -77,6 +77,8 @@ tr .physical-container      { margin: 100px;}
 .travel-planner button  {width: 75%;}
 .travel-planner input   {width: 300px;}
 
+  
+
 /* MAIN PAGE -------------------------------------------------------------- */
 
 h1 img                  {vertical-align: middle;}
@@ -84,6 +86,7 @@ div h1                  {vertical-align: middle;}
 
 .OC-Transpo-Logo        {height: 5%; width: 5%; margin: 10px; margin-bottom: 20px; vertical-align: center; }
 .Arrow                  {height: 55px; margin: 10px; margin-left: 50px;}
+.Arrow-Colour-Inverted  {height: 55px; margin: 10px; margin-left: 50px; filter: invert(100%) brightness(175%); }
 .googleAPI              {max-width: 100%; height: auto; display: inline; border: groove; border-width: 6px; }
 .contenti               {position:relative; }
 footer .x-icon          {height: 5%; margin:10px; vertical-align: center; position: absolute; top: 100%; left:95%;}
@@ -96,9 +99,56 @@ footer .youtube         {height: 5%; margin:10px; vertical-align: center; positi
     margin-left: 100px; 
     padding-left: 15px;
     vertical-align: top;
+    min-width: 35%;
 }
 .routes-container h2    {font-family: Inter; font-optical-sizing: auto; font-size: 48pt; margin: 0;}
 .routes-container p     {padding-left: 25px; padding-right: 25px; margin-top: 6px; margin-bottom: 12px;}
 .routes-container h3    {padding-left: 25px; padding-right: 25px; margin-top: 12px; margin-bottom: 6px; font-optical-sizing: 800;}
 .routes-container b     {padding-left: 25px; padding-right: 25px; margin-top: 8px; margin-bottom: 8px; font-size: 16pt;}
 .routes-container div   {padding-top: 25px; padding-bottom: 25px; border-color: grey; border-width: 6px; border-left-style: solid; }
+
+.flex-table { display: flex; align-items: left right;}
+
+.card {
+
+    width: 320px;
+    margin: auto;
+    padding: 15px;
+    border: black 1px solid;
+    position: fixed;
+    border-radius: 12px;
+    background-color: black;
+    left: -300px;
+
+    transition: left;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in;
+
+}
+
+.card:hover, .sticky    { left: -10px;}
+.cardstay               { position:fixed;}
+.cardtext               { color: var(--pageBack); color: white; font-family: inter; }
+.shiftright             { padding-left: 10%; }
+
+
+
+/* Favourites page */
+
+.picture {
+    max-width: 50%; height: auto;
+    height: fit-content;
+    width: fit-content;
+    position:absolute;
+    left: 50%; 
+    z-index: -10;
+    
+}
+.picture-bottom {
+    max-width: 50%; height: auto;
+    height: fit-content;
+    width: fit-content;
+    position:absolute;
+    top: 50%;
+    z-index: -10;
+}
