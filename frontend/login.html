@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <meta name="authors" content="Saravanan Rajeswaran; DJ Watson; Taleiven Goundan; Justin Le">
+        <script src="../backend/dbServer.js"></script>
+        <script src="../backend/apiHandler.js"></script>
         <link rel="stylesheet" type="text/css" href="Stylesheet/Stylesheet_A1.css">
         <link rel="preconnect" href="https://rsms.me/">
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -56,12 +58,11 @@
 
         <div class="physical-container" style="margin-left: 150px;">
             <div class="travel-planner">
-                <h2>Travel Planner</h2>
-                <p>Origin: <input></p>
-                <p>Destination: <input></p>
-                <button>Change routes</button>
+                <h2>Search for bus</h2>
+                <p>Stop Number/Name<input id="stopIn"></p>
+                <p>Route Number<input id="routeIn"></p>
+                <button id="searchBtn">Search</button>
             </div>
-            
         </div>
     </body>
     <script src="loginReg.js"></script>
