@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="authors" content="Saravanan Rajeswaran; DJ Watson; Taleiven Goundan; Justin Le">
     <script src="../backend/dbServer.js"></script>
-    <link rel="stylesheet" type="text/css" href="Stylesheet/Stylesheet_A2.css">
+    <link rel="stylesheet" type="text/css" href="Stylesheet/Stylesheet_A2.css" >
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" media="screen and (max-width: 50vw)" href="https://rsms.me/inter/inter.css">
-    <title>OC Bus Tracker</title>
+    <title>Favourites</title>
 
     <style>
         @font-face {
@@ -24,14 +24,15 @@
             src: url(fonts/Inter/static/Inter_24pt-Light.ttf);
         }
         @font-face {
-            font-family: Inter-28pt;
+            font-family: Inter;
             src: url(fonts/Inter/static/Inter_28pt-Light.ttf);
         }
     </style>
 </head>
-<body class="body">
+<body>
+   
     <div class="header-rectangle"></div>
-    <div class="header-main-page"><h1><img src="images/O-Train_icon.png" class="OC-Transpo-Logo">OC Bus Tracker <img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"></h1></div>
+    <div class="header-main-page"><h1><img src="images/O-Train_icon.png" class="OC-Transpo-Logo">OC Transpo Tracker<img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"></h1></div>
     <!-- https://commons.wikimedia.org/wiki/File:O-Train_icon.png -->
     <!-- By <a href="https://en.wikipedia.org/wiki/OC_Transpo" class="extiw" title="w:OC Transpo">OC Transpo</a> - <a rel="nofollow" class="external text" href="http://www.ligneconfederationline.ca/wp-content/uploads/2015/10/Confederation_Line_Newsletter_Fall_2015_EN.pdf">Confederation Line Newsletter, Fall 2015</a>, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=76822496">Link</a> -->        
     
@@ -46,13 +47,19 @@
             <p class="shiftright"><button>Login</button></p>
         </div>
     </div>
+
+
+
+
     
 
-    <div class="flex-page">
+   
+    <div class="flex-page" id="body">
         <div class="left-side">
             <div class="routes-container">
-                <h2>Travel Options</h2>
+                <h2>Favourite Routes</h2>
                 <div>
+                    <h3>Example 1</h3>
                     <h3>Fallowfield Station</h3>
                     <p>8:15 - 271 Tunney's Pasture &lpar;9 min&rpar;</p>
                     <h3>Baseline Station</h3>
@@ -64,6 +71,7 @@
                     <b>TOTAL: 52 min &lpar;8:26-9:18&rpar;</b>
                 </div>
                 <div>
+                    <h3>Example 2</h3>
                     <h3>Fallowfield Station</h3>
                     <p>8:30 - 278 Tunney's Pasture &lpar;27 min&rpar;</p>
                     <h3>Tunney's Pasture</h3>
@@ -73,70 +81,19 @@
                     <b>Destination - 9:34 - Canada Agriculture and Food Museum<br></b>
                     <b>TOTAL: 1h 5min &lpar;8:29-9:34&rpar;</b>
                 </div>
-            </div>  
-        </div>
-        <div class="right-side">
-            <div><img src="Images/Google-Map-API-picture-A1.png" class="googleAPI"></div>
-        </div>
-    
-    </div>
-
-
-    <!-- <div class="flex-table">
-        <div><img src="Images/Google-Map-API-picture-A1.png" class="googleAPI"></div>
-        <div class="routes-container">
-            <h2>Travel Options</h2>
-            <div>
-                <h3>Fallowfield Station</h3>
-                <p>8:15 - 271 Tunney's Pasture &lpar;9 min&rpar;</p>
-                <h3>Baseline Station</h3>
-                <p> 8:40 - 88 Hurdanman &lpar;18 min&rpar;</p>
-                <h3>Baseline &#47;Prince of Whales </h3>
-                <p> 8:59 - Walk &lpar;18 min&rpar;</p>
-
-                <b>Destination - 9:34 - Canada Agriculture and Food Museum<br></b>
-                <b>TOTAL: 52 min &lpar;8:26-9:18&rpar;</b>
             </div>
-            <div>
-                <h3>Fallowfield Station</h3>
-                <p>8:30 - 278 Tunney's Pasture &lpar;27 min&rpar;</p>
-                <h3>Tunney's Pasture</h3>
-                <p> 9:01 - Line 1 EAST &lpar;5 min&rpar;</p>
-                <h3>PIMISI B</h3>
-                <p>9:09 - 85 Bayshore &lpar;8 min&rpar;</p>
-                <b>Destination - 9:34 - Canada Agriculture and Food Museum<br></b>
-                <b>TOTAL: 1h 5min &lpar;8:29-9:34&rpar;</b>
-            </div>
-        </div>  
-    </div>
-    <div clas="flex-table">
-        <div class="physical-container">
-            <div class="travel-planner">
+            <div class="travel-planner element">
                 <h2>Travel Planner</h2>
                 <p>Origin: <input></p>
                 <p>Destination: <input></p>
                 <button>Change routes</button>
             </div>
-        </div>     
+        </div>
+
+        <div class="right-side">
+            <img src="images/IMG_4782.jpeg" class="background-image" style="z-index: -10;">
+        </div>
     </div>
-    -->
-
-
-
-
-
-
-    <footer>
-        <p>Something</p>
-        <img src="images/instagram-icon.png" class="instagram-icon"> 
-        <!-- https://www.flaticon.com/free-icon/instagram_1384063 -->
-        <img src="images/X_icon.svg.png" class="x-icon"> 
-        <!-- https://commons.wikimedia.org/wiki/File:X_icon.svg -->
-        <img src="images/2023_Facebook_icon.svg.png" class="facebook">
-        <!-- https://commons.wikimedia.org/wiki/File:2023_Facebook_icon.svg -->
-        <img src="images/Logo_of_YouTube_(2015-2017).svg.png" class="youtube">
-        <!-- https://commons.wikimedia.org/wiki/File:Logo_of_YouTube_%282015-2017%29.svg -->
-    </footer>
 
     <script>
         const route = document.querySelectorAll(".routes-container div");
@@ -155,6 +112,5 @@
         }); 
     </script>
 
-    
 </body>
 </html>

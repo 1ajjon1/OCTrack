@@ -135,6 +135,8 @@ footer .youtube         {height: 5%; margin:10px; vertical-align: center; positi
 
 /* Favourites page */
 
+
+
 .picture {
     max-width: 50%; height: auto;
     height: fit-content;
@@ -151,4 +153,79 @@ footer .youtube         {height: 5%; margin:10px; vertical-align: center; positi
     position:absolute;
     top: 50%;
     z-index: -10;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: flex-start; 
+
+}
+
+/* .flex-image {
+    max-width: 100%; Prevent the image from overflowing
+    height: auto;    Maintain aspect ratio
+    flex-shrink: 1;  Allow the image to shrink within the flex container
+} */
+ 
+/* @media (max-width: 1000px) {
+    .flex-container {
+        flex-direction: column; 
+        justify-content: center;
+    }
+} */
+
+
+
+
+
+/* Second favourite page  */
+
+
+/* .favourite-flex-page {
+    display: flex; 
+    align-items: top left right bottom;
+} */
+
+
+
+.background-container { 
+    display: flex; 
+    flex-direction: row;
+    margin-left: 100px; 
+    padding-left: 15px;
+    vertical-align: top;
+    min-width: 35%;
+}
+
+.background-image {
+    max-width: 50%; 
+   
+    object-fit: cover;
+    
+} 
+
+
+@media screen and (max-width: 50vw) {
+    .background-container {
+        flex-direction: column; 
+        justify-content: center;
+    }
+}
+
+
+
+
+/* Front page */
+.actual-body {
+    display: flex; 
+    align-items: left right;
+}
+.actual-body .left-side {
+    vertical-align: top;
+    flex-direction: column;
+}
+
+.actual-body .right-side {
+    /* Consist of picture */
+    height: auto;    
 }
