@@ -3,6 +3,7 @@
     <head>
         <meta name="authors" content="Saravanan Rajeswaran; DJ Watson; Taleiven Goundan; Justin Le">
         <script src="../backend/dbServer.js"></script>
+        <script src="../backend/apiHandler.js"></script>
         <link rel="stylesheet" type="text/css" href="Stylesheet/Stylesheet_A1.css">
         <link rel="preconnect" href="https://rsms.me/">
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -36,32 +37,32 @@
             <div class="physical-container"> 
                 <h2>Client Registration</h2>
                 <p>To book a trip with us, please register using your email.</p>   
-                <p>Email: <input id="i1"></p>
-                <p>Name: <input id="i2"></p>
-                <p>Username: <input id="i3"></p>
-                <p>Password: <input id="i4"></p>
-                <p>Confirm password: <input id="i5"></p>
+                <p>Email: <input id="emailRegistration"></p>
+                <p>Name: <input id="nameRegistration"></p>
+                <p>Username: <input id="userRegistration"></p>
+                <p>Password: <input id="passwordRegistration"></p>
+                <p>Confirm password: <input id="passwordConfirmation"></p>
                 
-                <p id="msg"><br></p>
-                <button>Register</button>
+                <p id="regMsg"><br></p>
+                <button id="registrationButton" onclick=registration()>Register</button>
             </div>
 
             <div class="physical-container" style="margin-left: 42%;">
                 <h2>Login</h2>
-                <p>Email: <input></p>
-                <p>Password: <input></p>
-                <button>Register</button>
+                <p>Email: <input id="loginEmail"></p>
+                <p>Password: <input id="loginPassword" type="password"></p>
+                <button id="loginButton" onclick=login()>Login</button>
+                <p id="loginMessage"></p>
             </div>
         </section>
 
         <div class="physical-container" style="margin-left: 150px;">
             <div class="travel-planner">
-                <h2>Travel Planner</h2>
-                <p>Origin: <input></p>
-                <p>Destination: <input></p>
-                <button>Change routes</button>
+                <h2>Search for bus</h2>
+                <p>Stop Number/Name<input id="stopIn"></p>
+                <p>Route Number<input id="routeIn"></p>
+                <button id="searchBtn">Search</button>
             </div>
-            
         </div>
        
         
@@ -119,4 +120,5 @@
         </script>
 
     </body>
+    <script src="loginReg.js"></script>
 </html>
