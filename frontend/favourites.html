@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="authors" content="Saravanan Rajeswaran; DJ Watson; Taleiven Goundan; Justin Le">
+    <script src="../backend/dbServer.js"></script>
+    <link rel="stylesheet" type="text/css" href="Stylesheet/Stylesheet_A1.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <title>Favourites</title>
+
+    <style>
+        @font-face {
+            font-family: Inter;
+            src: url(fonts/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf);
+        }
+       @font-face {
+            font-family: Inter;
+            src: url(fonts/Inter/static/Inter_18pt-Light.ttf);
+        }
+        @font-face {
+            font-family: Inter;
+            src: url(fonts/Inter/static/Inter_24pt-Light.ttf);
+        }
+        @font-face {
+            font-family: Inter-28pt;
+            src: url(fonts/Inter/static/Inter_28pt-Light.ttf);
+        }
+    </style>
+</head>
+<body>
+    <picture>
+        <source srcset="images/OC_Transpo_O_Train_LRV_1107_YOUNGJIN_KO.jpg" class="picture-bottom" media="(max-width: 720px)">
+        <source srcset="images/IMG_4782.jpeg">
+        <!-- <img src="images/IMG_4782.jpeg" class="picture"> -->
+    </picture>
+    
+    <img src="images/IMG_4782.jpeg" class="picture flex-container">
+    <div class="header-rectangle"></div>
+    <div class="header-main-page"><h1><img src="images/O-Train_icon.png" class="OC-Transpo-Logo">OC Transpo Tracker<img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow-Colour-Inverted"></h1></div>
+    <!-- https://commons.wikimedia.org/wiki/File:O-Train_icon.png -->
+    <!-- By <a href="https://en.wikipedia.org/wiki/OC_Transpo" class="extiw" title="w:OC Transpo">OC Transpo</a> - <a rel="nofollow" class="external text" href="http://www.ligneconfederationline.ca/wp-content/uploads/2015/10/Confederation_Line_Newsletter_Fall_2015_EN.pdf">Confederation Line Newsletter, Fall 2015</a>, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=76822496">Link</a> -->        
+    
+
+    <div id="card" class="card">
+        <p class="bodytext cardtext">Make navigation bar static?<input type="checkbox" class="cardstay" onclick="(card.className == 'card sticky') ? card.className='card' : card.className='card sticky';"></p>
+        <div>
+            <h3 class="cardtext shiftright">Login</h3>
+            <p class="bodytext cardtext shiftright">username: <input></p>
+            <p class="bodytext cardtext shiftright">password: <input></p>
+            <p id="msg" class="shiftright"><br></p>
+            <p class="shiftright"><button>Login</button></p>
+        </div>
+    </div>
+
+
+    <div class="flex-table">
+        <div class="routes-container">
+            <h2>Favourite Routes</h2>
+            <div>
+                <h3>Example 1</h3>
+                <h3>Fallowfield Station</h3>
+                <p>8:15 - 271 Tunney's Pasture &lpar;9 min&rpar;</p>
+                <h3>Baseline Station</h3>
+                <p> 8:40 - 88 Hurdanman &lpar;18 min&rpar;</p>
+                <h3>Baseline &#47;Prince of Whales </h3>
+                <p> 8:59 - Walk &lpar;18 min&rpar;</p>
+
+                <b>Destination - 9:34 - Canada Agriculture and Food Museum<br></b>
+                <b>TOTAL: 52 min &lpar;8:26-9:18&rpar;</b>
+            </div>
+            <div>
+                <h3>Example 2</h3>
+                <h3>Fallowfield Station</h3>
+                <p>8:30 - 278 Tunney's Pasture &lpar;27 min&rpar;</p>
+                <h3>Tunney's Pasture</h3>
+                <p> 9:01 - Line 1 EAST &lpar;5 min&rpar;</p>
+                <h3>PIMISI B</h3>
+                <p>9:09 - 85 Bayshore &lpar;8 min&rpar;</p>
+                <b>Destination - 9:34 - Canada Agriculture and Food Museum<br></b>
+                <b>TOTAL: 1h 5min &lpar;8:29-9:34&rpar;</b>
+            </div>
+        </div>  
+    </div>
+
+</body>
+
+</html>
