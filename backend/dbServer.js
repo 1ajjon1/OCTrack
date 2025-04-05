@@ -14,6 +14,7 @@ const bcrypt = require("bcrypt")
 app.use(express.json())
 const cors = require("cors");
 
+//Was running into a cors error when loading the login.html page, this fix from Stack seems to have fixed it
 const corsOptions = {
   origin: ["http://localhost:5500", "http://127.0.0.1:5500"], // Allow only your frontend
   methods: "GET,POST,PUT,DELETE,OPTIONS", // Allow necessary methods
