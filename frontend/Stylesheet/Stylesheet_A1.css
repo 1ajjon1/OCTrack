@@ -229,3 +229,101 @@ footer .youtube         {height: 5%; margin:10px; vertical-align: center; positi
     /* Consist of picture */
     height: auto;    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Format of Login page */
+.flex-page { display: flex; flex-direction: row;}
+@media (max-width: 1170px) { .flex-page { flex-direction: column; } .right-side{ margin-top: 100px;}}  /* Changes layout (.flex-page) when width is changed to less 1170px */
+
+
+    .right-side     { display: flex; flex-direction: column; vertical-align: top; flex: 60%; }
+    .right-side img { height: auto;  max-width: 100%;}
+
+
+    .left-side {
+        display: flex;  
+        flex: 40%;
+        flex-direction: column;
+        
+        vertical-align: top;
+        margin-right: 50px;
+    }
+    .element {
+        margin-top: 50px; 
+        margin-left: 100px;
+        padding: 24px;
+    
+        border-radius: 4% 4% 4% 4%; 
+        border: 2px solid black; 
+        background-color:rgba(0, 0, 0, 0.85); 
+    }
+        .element h2      { font-family: Inter; color: white; }
+        .element p       { font-family: Inter; color: white; }
+        .element input   { float: right;}
+        tr .element      { margin: 100px;}
+
+
+
+
+.travel-planner         {font-family: Inter; z-index: 21; width: 500px;}
+.travel-planner p       {font-family: Inter; font: 24pt; margin: 30px;}
+.travel-planner h2      {font-family: Inter; font: 28pt; margin: 30px}
+.travel-planner button  {width: 75%;}
+.travel-planner input   {width: 300px;}
+
+
+.routes-container { 
+    display: flex; 
+    flex-direction: column;
+    margin-left: 100px; 
+    padding-left: 15px;
+    vertical-align: top;
+    min-width: 35%;
+}
+.routes-container h2    {font-family: Inter; font-optical-sizing: auto; font-size: 48pt; margin: 0;}
+.routes-container p     {padding-left: 25px; padding-right: 25px; margin-top: 6px; margin-bottom: 12px;}
+.routes-container h3    {padding-left: 25px; padding-right: 25px; margin-top: 12px; margin-bottom: 6px; font-optical-sizing: 800;}
+.routes-container b     {padding-left: 25px; padding-right: 25px; margin-top: 8px; margin-bottom: 8px; font-size: 16pt;}
+.routes-container div   {padding-top: 25px; padding-bottom: 25px; border-color: grey; border-width: 6px; border-left-style: solid; }
+
+
+
+/* Front page -------------------------------------------------------------- --------------------------------------------------------------*/
+
+.front-flex-container{
+    display: flex; 
+    flex-direction: row;
+}
+.height-375 { height: 375px;}
+.height-250 { height: 250px;}
+.height-200 { height: 200px;}
+
+/* //Changes layout (.flex-page) when width is changed to less 1170px */
+@media (max-width: 1170px) {.front-flex-container { flex-direction: column; } .right-side{margin-top: 100px;}}  
