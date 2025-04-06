@@ -14,28 +14,18 @@
     <div id="accountname">Placeholder</div>
     <section>
         <label>Account</label>
-        <form method="post">
-            <select id="account" onchange="submit">
+        <form action="loadsetting.php" method="post" name="settingsform">
+            <select form="settingsform" name="settings" onchange="submit">
                 <option value="emailchange">Change Email</option>
                 <option value="passwordchange">Change Password</option>
                 <option value="preferences">Preferences</option>
                 <option value="logout">Log Out</option>
-            </select><br>
-            <label>Preferences</label>
-            <select id="preferences" onchange="submit">
                 <option value="managefavorites">Manage Favorites</option>
                 <option value="editnotifs">Edit Notifications</option>
             </select>
         </form>
     </section>
-    <?php
-        if(isset($_POST['select']) && $_POST['select']) {
-            if ($_POST['select'] == 'emailchange') include 'emailchange.php';
-            else if ($_POST['select'] == 'passwordchange') include 'passwordchange.php';
-            else if ($_POST['select'] == 'logout') include 'logoutpage.php';
-            else if ($_POST['select'] == 'managefavorites') include 'managefavorites.php';
-        }
-    ?>
+    <?php include"loadsetting.php";?>
     </body>
 </html>
 <!-- TO DO: 

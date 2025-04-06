@@ -9,6 +9,6 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     </head>
     <body>
-        Placeholder favourites
+        <p>Placeholder favourites</p>
     </body>
 </html>
