@@ -9,6 +9,11 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     </head>
     <body>
-        <p>Placeholder pw</p>
+        <form action="" method="post" name="pwchange">
+            <p>Old Password: <input type="password" id="oldpw"></p>
+            <p>New Password: <input type="password" id="newpw"></p>
+            <p>Confirm Password <input type="password" id="confpw"></p>
+            <input type="submit" value="Change Password">
+        </form>
     </body>
 </html>
