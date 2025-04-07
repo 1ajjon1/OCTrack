@@ -9,6 +9,10 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     </head>
     <body>
-        Placeholder email
+        <form action="" method="post" name="emailchange">
+            <p>Old Email: <input id="oldemail"></p>
+            <p>New Email: <input id="newemail"></p>
+            <input type="submit" value="Change Email">
+        </form>
     </body>
 </html>

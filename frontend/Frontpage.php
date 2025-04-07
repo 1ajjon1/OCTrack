@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="Stylesheet/Stylesheet_A2.css" >
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" media="screen and (max-width: 50vw)" href="https://rsms.me/inter/inter.css">
-    <title>Favourites</title>
+    <title>OC Transpo Home Page</title>
 
     <style>
         @font-face {
@@ -38,24 +38,14 @@
           <button>something</button>
         </div>
     </div>
-   
-   
-    <div id="card" class="card">
-        <p class="bodytext cardtext">Make navigation bar static?<input type="checkbox" class="cardstay" onclick="(card.className == 'card sticky') ? card.className='card' : card.className='card sticky';"></p>
-        <div>
-            <h3 class="cardtext shiftright">Login</h3>
-            <p class="bodytext cardtext shiftright">username: <input></p>
-            <p class="bodytext cardtext shiftright">password: <input></p>
-            <p id="msg" class="shiftright"><br></p>
-            <p class="shiftright"><button>Login</button></p>
-        </div>
-    </div>
 
+
+
+    <?php include "./ModularPHP/Card.php"; ?>           <!-- Login card on the side of the page -->
 
     
-
    
-    <div class="front-flex-container">            
+    <div class="generic-flex-container">            
         <div class="element height-375"> 
             <h2>Client Registration</h2>
             <p>To book a trip with us, please register using your email.</p>   
@@ -76,14 +66,18 @@
             <button>Register</button>
         </div>  
     
-    
         <div class="travel-planner element height-250">
             <h2>Travel Planner</h2>
             <p>Origin: <input></p>
             <p>Destination: <input></p>
             <button>Change routes</button>
-        </div>
-        
+        </div>        
     </div>
+
+
+
+    <?php include "./ModularPHP/IconRedirects.php"; ?>           <!-- If the icon is clicked in the bottom right corner of the page, it will redirect users to OC Transpo social media profile-->
+    <?php include "./ModularPHP/Footer.php"; ?>
+
 </body>
 </html>

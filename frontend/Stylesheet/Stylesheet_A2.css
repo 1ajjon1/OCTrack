@@ -6,14 +6,13 @@ h2          {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
 button      {font-family: Inter; font-size: 14pt; background-color: rgb(139, 0, 0); height: auto; text-align: center; color: white; padding-top: 3px; padding-bottom:5px; border-radius: 5%;}
 table       {margin-left:50px; font-family: Inter;}
 tr td       {vertical-align: top;}
-img         {top: 0px; left: 0px; display:inline;}
 p           { font-family: Inter; }
 
 input [type=text]   {padding: 5pt; border: 2px rgba(91, 145, 229, 1); font-size: 18pt; background-color: white;  }    /* Standardized Textboxes */
 section             {height: auto; padding-bottom: 100px; display: flex; align-items: center; justify-content: center; vertical-align: top;}
 section img         {width: 100%; height: auto; padding: 0; margin: 0; box-sizing: border-box;}
 footer              {height: 200px; background-color: black; vertical-align: middle;}
-footer p            {font-family: Inter; color: white; font-size: 16pt; }
+footer p            {font-family: Inter; color: white; font-size: 16pt; padding-top: 30px; padding-left: 20px;}
 
 
 .header-rectangle   {background-color: black; height: 35px; width: 100%; z-index: 10;}
@@ -32,11 +31,12 @@ h1 img              {vertical-align: middle;}
 .Arrow-Colour-Inverted  {height: 55px; margin: 10px; margin-left: 50px; filter: invert(100%) brightness(175%); }
 .googleAPI              {max-width: 100%; height: auto; display: inline; border: groove; border-width: 6px; }
 .contenti               {position:relative; }
-footer .x-icon          {height: 5%; margin:10px; vertical-align: center; position: absolute; top: 97%; left:95%;}
-footer .instagram-icon  {height: 5%; margin:10px; vertical-align: center; position: absolute; top: 97%; left:91%;}
-footer .facebook        {height: 5%; margin:10px; vertical-align: center; position: absolute; top: 97%; left:87%;}
-footer .youtube         {height: 5%; margin:10px; vertical-align: center; position: absolute; top: 97%; left:79%;}
 
+
+.x-icon          {height: 5%; margin:10px; position: fixed; bottom: 12px; right: 12px;  visibility: visible; cursor: pointer;}
+.instagram-icon  {height: 5%; margin:10px; position: fixed; bottom: 12px; right: 82px;  visibility: visible; cursor: pointer;}
+.facebook        {height: 5%; margin:10px; position: fixed; bottom: 12px; right: 152px; visibility: visible; cursor: pointer;}
+.youtube         {height: 5%; margin:10px; position: fixed; bottom: 12px; right: 222px; visibility: visible; cursor: pointer;}
 
 /* FONTS */
 /* Source: i forgot */
@@ -64,6 +64,7 @@ footer .youtube         {height: 5%; margin:10px; vertical-align: center; positi
     transition: left;
     transition-duration: 500ms;
     transition-timing-function: ease-in;
+    z-index: 22;
 
 }
 
@@ -76,8 +77,11 @@ footer .youtube         {height: 5%; margin:10px; vertical-align: center; positi
 
 
 
-/* Login page -------------------------------------------------------------- --------------------------------------------------------------*/
 
+
+
+
+/* Front page -------------------------------------------------------------- --------------------------------------------------------------*/
 
 
 /* Source: https://www.w3schools.com/howto/howto_css_hero_image.asp */
@@ -108,41 +112,34 @@ footer .youtube         {height: 5%; margin:10px; vertical-align: center; positi
 
 
 
+/* Layout */
+.front-flex-container{ display: flex; flex-direction: row; }
 
-/* Format of Login page */
-.flex-page { display: flex; flex-direction: row;}
-@media (max-width: 1170px) {.flex-page { flex-direction: column; } .right-side{margin-top: 100px;}}  /* Changes layout (.flex-page) when width is changed to less 1170px */
+/* Elements */
+.element {
+    margin-top: 50px; 
+    margin-left: 100px;
+    padding: 24px;
+
+    border-radius: 4% 4% 4% 4%; 
+    border: 2px solid black; 
+    background-color:rgba(0, 0, 0, 0.85); 
+}
+    .element h2      { font-family: Inter; color: white; }
+    .element p       { font-family: Inter; color: white; }
+    .element input   { float: right;}
+    tr .element      { margin: 100px;}
 
 
-    .right-side     { display: flex; flex-direction: column; vertical-align: top; flex: 60%; }
-    .right-side img { height: auto;  max-width: 100%;}
-
-
-    .left-side {
-        display: flex;  
-        flex: 40%;
-        flex-direction: column;
-        
-        vertical-align: top;
-        margin-right: 50px;
-    }
-        .element {
-            margin-top: 50px; 
-            margin-left: 100px;
-            padding: 24px;
-        
-            border-radius: 4% 4% 4% 4%; 
-            border: 2px solid black; 
-            background-color:rgba(0, 0, 0, 0.85); 
-        }
-            .element h2      { font-family: Inter; color: white; }
-            .element p       { font-family: Inter; color: white; }
-            .element input   { float: right;}
-            tr .element      { margin: 100px;}
+/* Height of specific elements */
+.height-375 { height: 375px;}
+.height-250 { height: 250px;}
+.height-200 { height: 200px;}
 
 
 
 
+/* Travel Planner */
 .travel-planner         {font-family: Inter; z-index: 21; width: 500px;}
 .travel-planner p       {font-family: Inter; font: 24pt; margin: 30px;}
 .travel-planner h2      {font-family: Inter; font: 28pt; margin: 30px}
@@ -150,6 +147,7 @@ footer .youtube         {height: 5%; margin:10px; vertical-align: center; positi
 .travel-planner input   {width: 300px;}
 
 
+/* Routes Container  */
 .routes-container { 
     display: flex; 
     flex-direction: column;
@@ -165,15 +163,39 @@ footer .youtube         {height: 5%; margin:10px; vertical-align: center; positi
 .routes-container div   {padding-top: 25px; padding-bottom: 25px; border-color: grey; border-width: 6px; border-left-style: solid; }
 
 
+/* Changes layout (.flex-page) when width is changed to less 1170px */
+@media (max-width: 1170px)  {.front-flex-container    { flex-direction: column; } .routes-container { margin-left: 50px; } }  
+@media (max-width: 650px)   {.front-flex-container    { flex-direction: column; } .routes-container { margin-left: 25px; } }  
 
-/* Front page -------------------------------------------------------------- --------------------------------------------------------------*/
 
-.front-flex-container{
-    display: flex; 
-    flex-direction: row;
+
+
+
+
+
+
+
+
+
+
+/* Main page -------------------------------------------------------------- --------------------------------------------------------------*/
+.generic-flex-container { display: flex; flex-direction: row;}
+
+
+.right-side     { display: flex; flex-direction: column; vertical-align: top; flex: 60%; }
+.right-side img { height: auto;  max-width: 100%;}
+
+
+.left-side {
+    display: flex;  
+    flex: 40%;
+    flex-direction: column;
+    
+    vertical-align: top;
+    margin-right: 50px;
 }
-.height-375 { height: 375px;}
-.height-250 { height: 250px;}
-.height-200 { height: 200px;}
 
-@media (max-width: 1170px) {.front-flex-container { flex-direction: column; } .right-side{margin-top: 100px;}}  /* Changes layout (.flex-page) when width is changed to less 1170px */
+
+/* Changes layout (.flex-page) when width is changed to less 1170px or 650px */
+@media (max-width: 1170px)  {.generic-flex-container    { flex-direction: column; } .routes-container { margin-left: 50px; } }  
+@media (max-width: 650px)   {.generic-flex-container    { flex-direction: column; } .routes-container { margin-left: 25px; } }  

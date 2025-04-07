@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     </head>
     <body>
-        Placeholder logout
+        <p>Are you sure you want to log out?</p>
+        <button>Yes</button>
+        <button>Cancel</button>
     </body>
 </html>
