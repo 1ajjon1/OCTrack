@@ -31,30 +31,17 @@
 </head>
 <body>
    
-    <div class="header-rectangle"></div>
-    <div class="header-main-page"><h1><img src="images/O-Train_icon.png" class="OC-Transpo-Logo">OC Transpo Tracker<img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"><img src="images/red-arrow-png-transparent - Copy.png" class="Arrow"></h1></div>
-    <!-- https://commons.wikimedia.org/wiki/File:O-Train_icon.png -->
-    <!-- By <a href="https://en.wikipedia.org/wiki/OC_Transpo" class="extiw" title="w:OC Transpo">OC Transpo</a> - <a rel="nofollow" class="external text" href="http://www.ligneconfederationline.ca/wp-content/uploads/2015/10/Confederation_Line_Newsletter_Fall_2015_EN.pdf">Confederation Line Newsletter, Fall 2015</a>, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=76822496">Link</a> -->        
-    
-
-    <div id="card" class="card">
-        <p class="bodytext cardtext">Make navigation bar static?<input type="checkbox" class="cardstay" onclick="(card.className == 'card sticky') ? card.className='card' : card.className='card sticky';"></p>
-        <div>
-            <h3 class="cardtext shiftright">Login</h3>
-            <p class="bodytext cardtext shiftright">username: <input></p>
-            <p class="bodytext cardtext shiftright">password: <input></p>
-            <p id="msg" class="shiftright"><br></p>
-            <p class="shiftright"><button>Login</button></p>
-        </div>
-    </div>
+       
+    <?php include "./ModularPHP/Header.php"; ?>         <!-- Header -->
+    <?php include "./ModularPHP/Card.php"; ?>           <!-- Login card on the side of the page -->
 
 
 
 
-    
+   <!-- Layout of the page -->
+    <div class="generic-flex-container" id="body">
 
-   
-    <div class="flex-page" id="body">
+        <!-- Left side of the page contains the route table and the travel planner element  -->
         <div class="left-side">
             <div class="routes-container">
                 <h2>Favourite Routes</h2>
@@ -90,12 +77,19 @@
             </div>
         </div>
 
+        <!-- The right side of the page contains an image -->
         <div class="right-side">
             <img src="images/IMG_4782.jpeg" class="background-image" style="z-index: -10;">
         </div>
     </div>
 
+
+
+    <?php include "./ModularPHP/IconRedirects.php"; ?>           <!-- If the icon is clicked in the bottom right corner of the page, it will redirect users to OC Transpo social media profile-->
+    <?php include "./ModularPHP/Footer.php"; ?>
+
     <script>
+        // If the user hovers over a route in the route table, the route is highlighted in green. 
         const route = document.querySelectorAll(".routes-container div");
     
         route.forEach((cell) => {
