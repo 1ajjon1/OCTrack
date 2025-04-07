@@ -7,7 +7,7 @@ app.use(express.json());
 
 const appID = process.env.OCTRANSPO_APP_ID;
 const apiKey = process.env.OCTRANSPO_API_KEY;
-const baseUrl = "https://api.octranspo1.com/v2.0";
+const baseUrl = process.env.URL;
 
 const cors = require("cors");
 
@@ -30,7 +30,7 @@ app.get("/api/stop", async (req, res) => {
         }
 
         // Get route summary for the stop
-        const routeSummaryUrl = `https://api.octranspo1.com/v2.0/GetRouteSummaryForStop?appID=a3070a29&apiKey=0c559b4056736cd027607d0ec3b65c58&stopNo=6703&format=json`;
+        const routeSummaryUrl = `${baseUrl}/GetRouteSummaryForStop?appID=${appID}&apiKey=${apiKey}&stopNo=${stopNo}&format=json`;
         const routeSummaryResponse = await fetch(routeSummaryUrl);
         if (!routeSummaryResponse.ok) {
             throw new Error(`Error fetching route summary: ${routeSummaryResponse.status}`);

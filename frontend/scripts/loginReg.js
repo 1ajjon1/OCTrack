@@ -15,7 +15,7 @@ async function login(){
     }
     try {
         //API post request to db to try and login in user based on their input
-        const response = await fetch("http://localhost:3000/login", {
+        const response = await fetch("http://localhost:3001/login", {
             method: "POST",
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify({username,password})
@@ -24,7 +24,9 @@ async function login(){
         
         const result = await response.json();
         if(response.ok){//If the request is succesful
-            document.getElementById("loginMessage").textContent = "Login successfull!";
+            sessionStorage.setItem('status', 'loggedIn');
+            sessionStorage.setItem('username', result.username || username);
+            window.location.href = "./Favourites_A2.php";
         }
         else{//If the request is insuccesful
             document.getElementById("loginMessage").textContent = result.error || "Login Failed";
@@ -75,7 +77,7 @@ async function registration(){
     }
     //API request to the DB 
     try {
-        const response = await fetch("http://localhost:3000/createUser", {
+        const response = await fetch("http://localhost:3001/createUser", {
             method: "POST",
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify({username,password,email,name})
@@ -90,6 +92,12 @@ async function registration(){
         }
 
         if(response.ok){
+            // Clear input fields after registration
+            document.getElementById("emailRegistration").value = "";
+            document.getElementById("nameRegistration").value = "";
+            document.getElementById("userRegistration").value = "";
+            document.getElementById("passwordRegistration").value = "";
+            document.getElementById("passwordConfirmation").value = "";
             document.getElementById("regMsg").textContent = "Registration Successful!";
         }
         else{
@@ -97,7 +105,7 @@ async function registration(){
         }
     }
     catch{
-        document.getElementById("regMsg").textContent = result.error || "Registration Failed";
+        document.getElementById("regMsg").textContent = "Registration Failed, please try again later";
     }
     finally{
         regButton.disabled = false;

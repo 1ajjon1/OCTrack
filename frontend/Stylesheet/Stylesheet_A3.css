@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f5f5f5;
+}
+
+/* Header Rectangle Style */
+.header-rectangle {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+/* Navigation Bar Styles */
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;  /* Add space between the menu items */
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;  /* White text for the links */
+    font-weight: bold;  /* Make text bold */
+    padding: 10px 15px;  /* Add padding for better spacing */
+    transition: color 0.3s, background-color 0.3s;  /* Smooth transitions for hover effects */
+}
+
+.menu a:hover {
+    color: yellow;  /* Change text color on hover */
+    background-color: rgba(255, 255, 255, 0.2);  /* Slight background change on hover */
+    border-radius: 5px;  /* Rounded corners on hover */
+}
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main page header */
+.header-main-page {
+    font-family: Inconsolata;
+    font-size: 4vw; /* Dynamically resize font based on viewport */
+    height: auto; /* Automatically adjust height */
+    z-index: 10;
+    padding: 10px 0; /* Add some vertical padding */
+}
+
+/* h1 image style (center vertically) */
+h1 img {
+    vertical-align: middle;
+}
+
+/* Layer Style */
+.layer-1 {
+    z-index: 10;
+    width: 100%;
+    height: auto;
+}
+
+/* OC Transpo Logo */
+.OC-Transpo-Logo {
+    height: 5vh; /* Use viewport height (vh) for better scaling */
+    width: auto; /* Maintain aspect ratio */
+    margin: 10px;
+    margin-bottom: 20px;
+    vertical-align: middle; /* Align logo vertically */
+}
+
+/* Arrow styling */
+.Arrow {
+    height: 5vh; /* Use viewport height (vh) for better scaling */
+    margin: 10px;
+    margin-left: 20px; /* Adjust margin as needed */
+}
+
+/* Inverted Arrow styling */
+.Arrow-Colour-Inverted {
+    height: 5vh; /* Adjust height dynamically with viewport */
+    margin: 10px;
+    margin-left: 20px;
+    filter: invert(100%) brightness(175%);
+}
+
+/* Footer Style */
+footer {
+    height: 90px;
+    background-color: black;
+    width: 100%;
+    position: relative;  /* Normal flow within the layout */
+    bottom: 0;
+    margin-top: auto;  /* This ensures the footer stays at the bottom */
+}
+
+/* Footer Paragraph Style */
+footer p {
+    font-family: Inter;
+    color: white;
+    font-size: 12pt;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+/* Footer link style */
+footer a {
+    color: #3498db;  /* Change link color to blue */
+    text-decoration: none;  /* Remove underline */
+}
+footer a:hover {
+    text-decoration: underline;  /* Underline link on hover */
+}
+main{
+    flex: 1;
+}
+
+#busInfo {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.bus-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.bus-route {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.bus-destination {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+.bus-time {
+    font-size: 16px;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.bus-stop {
+    font-size: 14px;
+    color: #34495e;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ecf0f1;
+}
+
+#map {
+    height: 40vh;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#searchContainer {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button {
+    padding: 10px 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* Responsive design for smaller screens (mobile) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 8vw;  /* Increase font size for small screens */
+    }
+    header {
+        padding: 15px;
+    }
+}
+
+/* For very small screens, make the header even smaller */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 10vw;  /* Font size increases for extra small screens */
+    }
+    header {
+        padding: 10px;
+    }
+}
