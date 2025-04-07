@@ -49,6 +49,7 @@ session_start();
             include 'dbConnection.php';
             $db = connect2db();
 
+            //This gets all of the routes saved for a user and displays them
             $username = $_SESSION['username'];
             $query = "SELECT stop_number FROM favorite_stops WHERE username = ?";
             $stmt = $db->prepare($query);

@@ -12,7 +12,7 @@ if (!isset($_SESSION['username'])) {
 // Get the JSON input
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Validate stop_number input
+// Verify stop_number input
 if (!isset($data['stop_number']) || empty($data['stop_number'])) {
     echo json_encode(["status" => "error", "message" => "Stop number is required."]);
     exit();

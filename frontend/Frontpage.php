@@ -61,7 +61,7 @@ if (isset($_GET['logout'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="authors" content="Saravanan Rajeswaran; DJ Watson; Taleiven Goundan; Justin Le">
-    <script src="./scripts/loginReg.js"></script>  <!-- Linking your loginReg.js file -->
+    <script src="./scripts/loginReg.js"></script>
     <link rel="stylesheet" type="text/css" href="Stylesheet/Stylesheet_A2.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" media="screen and (max-width: 50vw)" href="https://rsms.me/inter/inter.css">
@@ -92,7 +92,7 @@ if (isset($_GET['logout'])) {
         <div class="hero-text">
             <h1>OC Transpo Tracker</h1>
             <p>Plan the day ahead</p>
-            <button>something</button>
+            <a href="stopInfo.php">Track Bus</a>
         </div>
     </div>
 
@@ -122,13 +122,6 @@ if (isset($_GET['logout'])) {
                     
                     <button type="submit">Login</button>
                 </form>
-        </div>
-
-        <div class="travel-planner element height-250">
-            <h2>Travel Planner</h2>
-            <p>Origin: <input id="origin"></p>
-            <p>Destination: <input id="destination"></p>
-            <button>Change routes</button>
         </div>
     </div>
 

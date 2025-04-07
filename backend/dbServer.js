@@ -22,11 +22,12 @@ app.use(session({
     saveUninitialized: true, // Save uninitialized sessions
     cookie: {
         httpOnly: true,   // Helps prevent client-side JS from accessing session cookie
-        maxAge: 3600000   // Set a maxAge for the cookie in milliseconds (1 hour in this example)
+        maxAge: 3600000   // Set a maxAge for the cookie in milliseconds
     }
 }));
-app.use(express.urlencoded({ extended: true })); // For form data
+app.use(express.urlencoded({ extended: true }));
 
+//This is to get all of the stop information needed for the frontend
 app.get("/api/stop", async (req, res) => {
     try {
         const { stopNo } = req.query;
@@ -75,7 +76,8 @@ app.get("/api/stop", async (req, res) => {
                         : [rawTrips].filter(trip => trip && trip.AdjustedScheduleTime !== undefined);
         
                     if (trips.length === 0) return null;
-                    console.log(trips);
+                    console.log(route.RouteHeading);
+                    //This will return the stop name as well which will be displayed in the favourites/display routes page
                     return {
                         routeNo: route.RouteNo,
                         routeHeading: route.RouteHeading,
@@ -99,8 +101,8 @@ app.get("/api/stop", async (req, res) => {
     }
 });
 
-// Start the server by adding this
-const PORT = process.env.PORT || 3006; // Default to 3000 if no port is provided in .env file
+// Start the server
+const PORT = process.env.PORT || 3006; // Default to 3006 if no port is provided in .env file
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

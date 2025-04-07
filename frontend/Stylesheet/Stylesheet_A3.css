@@ -59,7 +59,7 @@ body {
 /* Main page header */
 .header-main-page {
     font-family: Inconsolata;
-    font-size: 4vw; /* Dynamically resize font based on viewport */
+    font-size: 4vw;
     height: auto; /* Automatically adjust height */
     z-index: 10;
     padding: 10px 0; /* Add some vertical padding */
@@ -79,7 +79,7 @@ h1 img {
 
 /* OC Transpo Logo */
 .OC-Transpo-Logo {
-    height: 5vh; /* Use viewport height (vh) for better scaling */
+    height: 5vh;
     width: auto; /* Maintain aspect ratio */
     margin: 10px;
     margin-bottom: 20px;
@@ -88,7 +88,7 @@ h1 img {
 
 /* Arrow styling */
 .Arrow {
-    height: 5vh; /* Use viewport height (vh) for better scaling */
+    height: 5vh;
     margin: 10px;
     margin-left: 20px; /* Adjust margin as needed */
 }

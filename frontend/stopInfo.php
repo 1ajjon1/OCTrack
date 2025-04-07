@@ -45,9 +45,8 @@ session_start();
             }
 
             if (!username) {
-                    alert("Please log in to add to favorites.");
-                    document.getElementById('favoriteBtn').style.display = 'none';
-                }
+                document.getElementById('favoriteBtn').style.display = 'none';
+            }
             let stopNumber = null;
 
             document.getElementById("searchBtn").addEventListener("click", async function () {
@@ -88,10 +87,6 @@ session_start();
                         return;
                     }
 
-                    // Recenter map if location info is present
-                    if (data.stop_description && data.stop_description.Latitude && data.stop_description.Longitude) {
-                        map.setView([data.stop_description.Latitude, data.stop_description.Longitude], 14);
-                    }
 
                     data.buses.forEach(bus => {
                         // Filter by route number if one was entered
@@ -144,17 +139,17 @@ session_start();
                     alert("Failed to fetch bus data. Please try again.");
                 }
             });
-
+            //This is the favorite feature
             document.getElementById("favoriteBtn").addEventListener("click", async function () {
-                const stopNo = stopNumber;  // Assuming `stopNumber` is defined elsewhere
+                const stopNo = stopNumber;
                 
+                //If no stop number is specified, throw an error
                 if (!stopNo) {
                     alert("Please select a bus stop first.");
                     return;
                 }
 
                 try {
-                    // Make a single fetch call to handle both check and add favorite
                     const response = await fetch("favoriteStop.php", {
                         method: "POST",
                         headers: {
