@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-include "../dbConnection.php";
+include "dbConnection.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_SESSION['username'];
     $old_password = trim($_POST["oldpw"]);
@@ -30,11 +30,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $query = "UPDATE users SET password_hash = '$passchange' WHERE username = '".$_SESSION['username']."'";
                     if($dbConnection->query($query)){
                         $_SESSION['success'] = "Password Updated";
-                        header("Location: ../frontpage.php");
+                        echo "Password Updated";
 
-                    } else $_SESSION['error'] = $dbConnection->error;
-                } else $_SESSION['error'] = "New passwords don't match";
-            }  else $_SESSION['error'] = "Incorrect old password";
+                    } else {
+                        $_SESSION['error'] = $dbConnection->error;
+                        echo 'Backend Error';
+                    }
+                } else {
+                    $_SESSION['error'] = "New passwords don't match";
+                    echo "Passwords don't match";
+                }
+            }  else {
+                $_SESSION['error'] = "Incorrect old password";
+                echo "Incorrect old password";
+            }
         } else $_SESSION['error'] = "fetch failed";
     } else echo "Please fill in all fields";
 }

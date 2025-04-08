@@ -1,6 +1,9 @@
 <?php 
 session_start(); 
-include "../dbConnection.php";
+include "dbConnection.php";
+if (!isset($_SESSION['username'])) {
+    header('Location:../Frontpage.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,14 +16,13 @@ include "../dbConnection.php";
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     </head>
     <body>
-    <div id="accountname"><?php echo htmlspecialchars($_SESSION['username']); ?></div>
+    <div id="accountname">Account settings: <?php echo htmlspecialchars($_SESSION['username']); ?></div>
+    <a href="Favourites_A2.php">Favourites</a>
     <section>
-        <label>Account</label>
         <form action="" method="post" name="settingsform">
             <select form="settingsform" id="settings">
                 <option value="emailchange">Change Email</option>
                 <option value="passwordchange">Change Password</option>
-                <option value="managefavorites">Manage Favorites</option>
             </select>
         </form>
     </section>
@@ -34,9 +36,6 @@ include "../dbConnection.php";
                     break;
                 case "passwordchange":
                     frame.setAttribute('src', 'passwordchange.php');
-                    break;
-                case "managefavorites":
-                    frame.setAttribute('src', 'managefavorites.php');
                     break;
             }
         });
