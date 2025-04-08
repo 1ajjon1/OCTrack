@@ -1,5 +1,7 @@
-<?php session_start();?>    
-
+<?php 
+session_start(); 
+include "../dbConnection.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,24 +13,36 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     </head>
     <body>
-    <div id="accountname">Placeholder</div>
+    <div id="accountname"><?php echo htmlspecialchars($_SESSION['username']); ?></div>
     <section>
         <label>Account</label>
-        <form action="loadsetting.php" method="post" name="settingsform">
-            <select form="settingsform" name="settings" onchange="submit">
+        <form action="" method="post" name="settingsform">
+            <select form="settingsform" id="settings">
                 <option value="emailchange">Change Email</option>
                 <option value="passwordchange">Change Password</option>
-                <option value="preferences">Preferences</option>
-                <option value="logout">Log Out</option>
                 <option value="managefavorites">Manage Favorites</option>
-                <option value="editnotifs">Edit Notifications</option>
             </select>
         </form>
     </section>
-    <?php include"loadsetting.php";?>
+    <iframe id="settingframe" src="emailchange.html" width="100%" height="500px"></iframe>
+    <script>
+        document.getElementById("settings").addEventListener('change', function() {
+            let frame = document.getElementById("settingframe");
+            switch(this.value) {
+                case "emailchange":
+                    frame.setAttribute('src', 'emailchange.php');
+                    break;
+                case "passwordchange":
+                    frame.setAttribute('src', 'passwordchange.php');
+                    break;
+                case "managefavorites":
+                    frame.setAttribute('src', 'managefavorites.php');
+                    break;
+            }
+        });
+    </script>
     </body>
 </html>
 <!-- TO DO: 
- Test script to invoke php/html pages based on options selected from dropdowns
  CSS formatting 
  -->
